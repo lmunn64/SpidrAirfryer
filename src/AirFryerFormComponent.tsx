@@ -2,7 +2,20 @@ import { useState } from 'react'
 import './App.css'
 import ParticlesBackground from './components/ParticlesBackground'
 
-function App() {
+/* 
+
+Form component that allows users to input their Name, Phone, Email, Secret Spidr PIN, and price guess for
+a fake airfryer to gauge interest in the product.
+
+Allows for validation of PIN, phone and email to ensure correct input when users submit their data.
+
+Once submitted, the app will validate inputs and print to the console an object of the input data
+
+Follows, to the best of my ability, the design philosophy of Spidr's website using color palettes
+from the web page as well as interpreted stylings and such.
+
+*/
+function AFFormComponent() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [phone, setPhone] = useState('')
@@ -10,7 +23,7 @@ function App() {
   const [cost, setCost] = useState('')
   const [code, setCode] = useState('')
 
-  // Validation functions
+  // validation functions
   const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
@@ -37,6 +50,7 @@ function App() {
     return value
   }
 
+  // handles updates to the phone input
   const handlePhoneChange = (e: { target: { value: string } }) => {
     const formatted = formatPhone(e.target.value)
     if (formatted !== phone) {
@@ -44,6 +58,7 @@ function App() {
     }
   }
 
+  // handles updates to the PIN input
   const handleCodeChange = (e: { target: { value: string } }) => {
     const formatted = formatPIN(e.target.value)
     if (formatted !== code) {
@@ -51,6 +66,7 @@ function App() {
     }
   }
 
+  // final submit function that validates all inputs and prints to console
   const submit = () => {
     
     // validation before submit
@@ -170,4 +186,4 @@ function App() {
   )
 }
 
-export default App
+export default AFFormComponent
