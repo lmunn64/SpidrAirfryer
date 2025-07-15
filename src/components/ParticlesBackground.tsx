@@ -1,8 +1,10 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, memo } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const ParticlesBackground = () => {
+/** Particle.js background to simulate the landing page on the Spidr website **/
+/** update to use memoization to keep the background from refreshing on each rerender of form input */
+const ParticlesBackground = memo(() => {
   const options = useMemo(
     () => ({
       background: {
@@ -101,6 +103,6 @@ const ParticlesBackground = () => {
       }}
     />
   );
-};
+});
 
 export default ParticlesBackground;

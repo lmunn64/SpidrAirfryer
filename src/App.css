@@ -16,6 +16,22 @@
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: 5vh;
+  
+  /* Animation properties for sliding in on load */
+  animation: slideInFromTop 1.2s ease-out forwards;
+  opacity: 0;
+  transform: translate(-50%, -100px);
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 30%);
+  }
 }
 
 .form-text{
@@ -24,7 +40,7 @@
   text-align: center;
   border-color: color-mix(in srgb, #FFFF 50%, transparent);
   border-style:solid;
-  margin: 10px;
+  margin: 5px 0;
   height: 30px;
   width: 100%;
 }
@@ -32,10 +48,18 @@
   outline: none;
   border-color: var(--hover-color)
 }
+
 .form-row{
   display: flex;
   justify-content: center;
   width: 75%;
+  gap: 20px;
+}
+
+.form-row > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-title{
@@ -44,7 +68,6 @@
   font-weight: 200;
   line-height: 1.5;
   position: relative;
-  margin-bottom: 10%;
 }
 .form-title::after{
   content: '';
@@ -53,10 +76,25 @@
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
-  height: 2px;
+  height: 3px;
   background-color: #ffff;
 }
 
+.form-subtitle{
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.input-label {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--font-color);
+  margin-bottom: -4px;
+  text-align: left;
+  width: 100%;
+  display: block;
+}
 
 .submit-button{
   font-family: inherit;
